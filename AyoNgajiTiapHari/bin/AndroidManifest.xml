@@ -29,6 +29,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.eclipseprogramming.ayongajitiaphari.TombolMasuk"
+            android:label="@string/app_name" >
+            
+        </activity>
+        <activity
             android:name="com.eclipseprogramming.ayongajitiaphari.MainActivity"
             android:label="@string/app_name" > 
             

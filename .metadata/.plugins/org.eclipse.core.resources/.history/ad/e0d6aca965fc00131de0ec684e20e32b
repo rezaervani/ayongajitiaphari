@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/quraniconlagi"
+        android:contentDescription="@string/tombolquran" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sunnah"
+        android:contentDescription="@string/tombolsunnah" />
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignLeft="@+id/imageButton1"
+        android:layout_centerVertical="true"
+        android:background="@drawable/masjid"
+        android:contentDescription="@string/tombolmasjid" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="100dip"
+        android:layout_height="100dip"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_centerVertical="true"
+        android:background="@drawable/tanyajawab"
+        android:contentDescription="@string/tomboltanyajawab" />
+
+</RelativeLayout>
