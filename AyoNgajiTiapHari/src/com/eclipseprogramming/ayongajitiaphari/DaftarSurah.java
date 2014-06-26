@@ -7,138 +7,145 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 public class DaftarSurah extends ListActivity {
 	
-	private ProgressDialog infoNunggu;
+	private ProgressDialog pDialog;
 	
-	private static String url = "http://rumahilmu.net/eclipseprogramming/daftarsurah.php";
+	// URL untuk mendapatkan JSON
+	private static String url = "http://rumahilmu.net/eclipseprogramming/ayatquran.php";
 	
-	private static final String TAG_SURAHQURAN 		= "surahquran";
-	private static final String TAG_ID 				= "id";
-	private static final String TAG_NAMASURAH 		= "namasurah";
-	private static final String TAG_KETERANGANSURAH = "keterangansurah";
+	// JSON Node
+	private static final String TAG_SURAHQURAN = "surahquran";
+	private static final String TAG_ID = "id";
+	private static final String TAG_NAMASURAH = "namasurah";
+	private static final String TAG_KETERANGAN = "keterangan";
+	
+	
 	
 	// Menghubungi JSONArray
 	JSONArray alquran = null;
-		
-	// Membuat HashMap untuk ListView
-	ArrayList<HashMap<String, String>> surahAlQuran;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.tafsirquran);
-		
-		surahAlQuran = new ArrayList<HashMap<String, String>>();
-		
-		ListView lv = getListView();
-	        
-	    
-	}
 	
-	private class GetSurah extends AsyncTask<Void, Void, Void> {
+	// Membuat HashMap untuk ListView
+	ArrayList<HashMap<String, String>> daftarSurah;
 
-		@Override
-		protected Void doInBackground(Void... params) {
-			// TODO Auto-generated method stub
-			PanggilanHTTP panggil = new PanggilanHTTP();
-			
-			String strnyajson = panggil.makeServiceCall(url, PanggilanHTTP.GET);
-			
-			Log.d("Response : ", " >" + strnyajson);
-			
-			if (strnyajson != null) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.tafsirquran);
+        
+        daftarSurah = new ArrayList<HashMap<String, String>>();
+        
+        ListView lv = getListView();
+        
+        new GetJadwal().execute();
+        
+        
+    }
+    
+    private class GetJadwal extends AsyncTask<Void, Void, Void> {
+    	
+    	
+    	
+    	@Override
+    	protected void onPreExecute() {
+    		// TODO Auto-generated method stub
+    		super.onPreExecute();
+    		
+    		//menampilkan progress dialog
+    		pDialog = new ProgressDialog(DaftarSurah.this);
+    		pDialog.setMessage("Sedang Memuat dari rumahilmu.net");
+    		pDialog.setCancelable(false);
+    		pDialog.show();
+    		
+    	}
+
+    	@Override
+    	protected Void doInBackground(Void... params) {
+    		
+    		// Membuat Class Instance Service Handler
+    		PanggilanHTTP ph = new PanggilanHTTP();
+    		
+    		String jsonStr = ph.makeServiceCall(url, PanggilanHTTP.GET);
+    		
+    		Log.d("Response: ", "> " + jsonStr);
+    		
+    		if (jsonStr != null) {
     			try {
-    				JSONObject objeknyajson = new JSONObject(strnyajson);
+    				JSONObject jsonObj = new JSONObject(jsonStr);
     				
     				//Memperolah node JSON Array
-    				alquran = objeknyajson.getJSONArray(TAG_SURAHQURAN);
+    				alquran = jsonObj.getJSONArray(TAG_SURAHQURAN);
     				
     				// Looping seluruh jadwal
     				for (int i = 0; i < alquran.length(); i++) {
-    					JSONObject d 		= alquran.getJSONObject(i);
-    					String id 			= d.getString(TAG_ID);
-    					String surah 		= d.getString(TAG_NAMASURAH);
-    					String keterangan 	= d.getString(TAG_KETERANGANSURAH);
+    					JSONObject c 	= alquran.getJSONObject(i);
+    					String id 		= c.getString(TAG_ID);
+    					String namasurah 	= c.getString(TAG_NAMASURAH);
+    					String keterangan 	= c.getString(TAG_KETERANGAN);
     					
     					
-    					HashMap<String, String> daftarquran = new HashMap<String,String>();
     					
-    					daftarquran.put(TAG_ID, id);
-    					daftarquran.put(TAG_NAMASURAH, surah);
-    					daftarquran.put(TAG_KETERANGANSURAH, keterangan);
+    					HashMap<String, String> jadwal = new HashMap<String,String>();
     					
-    					surahAlQuran.add(daftarquran);
+    					jadwal.put(TAG_ID, id);
+    					jadwal.put(TAG_NAMASURAH, namasurah);
+    					jadwal.put(TAG_KETERANGAN, keterangan);
+    					
+    					
+    					
+    					daftarSurah.add(jadwal);
+    					
+    					//menambahkan jadwal ke jadwal list
+    				}
+    				} catch (JSONException e) {
+    					e.printStackTrace();
     					
     				}
-    			} catch (JSONException ex) {
-					ex.printStackTrace();
+    			
+    			} else {
+    				Log.e("PanggilanHTTP", "Tidak dapat data apapun dari URL tersebut");
     			}
-				} else {
-					Log.e("PanggilanHTTP", "Tidak dapat data apapun dari URL tersebut");
-	    		}
-    	
-			
-			
-			return null;
-		}
-
-		@Override
-		protected void onPreExecute() {
-			// TODO Auto-generated method stub
-			super.onPreExecute();
-			
-			infoNunggu = new ProgressDialog(DaftarSurah.this);
-			infoNunggu.setMessage("Meloading Quran dari rumahilmu.net ... ");
-			infoNunggu.setCancelable(false);
-			infoNunggu.show();
-			
-		}
+    			
+    			return null;
+    				
+    				}
 
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
 			super.onPostExecute(result);
 			
-			if (infoNunggu.isShowing())
-				infoNunggu.dismiss();
+			if (pDialog.isShowing())
+				pDialog.dismiss();
 			
-			ListAdapter adaptersurah = new SimpleAdapter(DaftarSurah.this, surahAlQuran, R.layout.tafsirquran, new String[]
+			ListAdapter adapter = new SimpleAdapter(DaftarSurah.this, daftarSurah, R.layout.ayatquran, new String[]
 					
-					{TAG_NAMASURAH, TAG_KETERANGANSURAH },
+					{TAG_NAMASURAH, TAG_KETERANGAN  },
 					
 					new int[] { R.id.namasurah, R.id.keterangan});
 			
-			setListAdapter(adaptersurah);
+			setListAdapter(adapter);
 			
 		}
-
-		
-		
-		
-		
-		
+    	
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+    		
 }
+
+
+
+
+
+
