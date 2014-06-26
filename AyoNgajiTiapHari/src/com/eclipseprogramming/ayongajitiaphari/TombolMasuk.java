@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 public class TombolMasuk extends Activity {
-	Button tombol;
+	Button tombolquran;
+	Button tombolsunnah;
+	Button tombolmasjid;
+	Button tomboltanyajawab;
 	
 
 	@Override
@@ -18,9 +21,9 @@ public class TombolMasuk extends Activity {
 		
 		setContentView(R.layout.tombolmasuk);
 		
-		tombol = (Button) findViewById(R.id.button1);
+		tombolquran = (Button) findViewById(R.id.button1);
 		
-		tombol.setOnClickListener(new OnClickListener() {
+		tombolquran.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {

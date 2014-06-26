@@ -1,7 +1,5 @@
 INDEX VERSION 1.126+/home/rezaervani/Documents/git/AyoNgajiTiapHari/.metadata/.plugins/org.eclipse.jdt.core
 1270315800.index
-2629113247.index
-22634520.index
 1201890630.index
 2091600048.index
-3492889166.index
+22634520.index

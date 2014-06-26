@@ -1,0 +1,10 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.app.ListActivity;
+import android.app.ProgressDialog;
+
+public class DaftarSurah extends ListActivity {
+	
+	private ProgressDialog infoNunggu;
+
+}

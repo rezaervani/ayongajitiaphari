@@ -1,0 +1,18 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.json.JSONArray;
+
+import android.app.ProgressDialog;
+
+public class DaftarSurahData {
+	public ProgressDialog infoNunggu;
+	public JSONArray alquran;
+	public ArrayList<HashMap<String, String>> surahAlQuran;
+
+	public DaftarSurahData(JSONArray alquran) {
+		this.alquran = alquran;
+	}
+}

@@ -1,4 +1,6 @@
 \u0000\u0000\u0000\u0003\u0000O/AyoNgajiTiapHari/src/com/eclipseprogramming/ayongajitiaphari/SplashScreen.java\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000;\u0002\u0000\u0019org.eclipse.jdt.core.task\u0000\u0008\u0000\u0008sourceId\u0003\u0000\u0003JDT\u0000=charStart\u0002\u0000\u0000\u0001\u00E2\u0000\fuserEditable\u0001\u0000\u0000\u0007charEnd\u0002\u0000\u0000\u0002\u0001\u0000\u0002id\u0002 \u0000\u0001\u00C2\u0000\u0007message\u0003\u0000\u001FTODO Auto-generated method stub\u0000\u0008priority\u0002\u0000\u0000\u0000\u0001\u0000
+ddms.logcat.auotmonitor.level=error
+ddms.logcat.automonitor.userprompt=true
 eclipse.preferences.version=1
 lineNumber\u0002\u0000\u0000\u0000\u0015\u0000\u0000\u0001F\u00D2=\u00F1\u0011\u0000O/AyoNgajiTiapHari/src/com/ec
 logcat.view.colsize.Application=170

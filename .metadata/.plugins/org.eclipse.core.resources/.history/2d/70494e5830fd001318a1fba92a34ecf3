@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AyoNgajiTiapHari</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="juduldepan">Ayo Ngaji Tiap Hari</string>
+    <string name="situs">quran.rumahilmu.or.id</string>
+    <string name="logo">logo</string>
+    <string name="masjid">Masjid</string>
+    <string name="ustadz">Ustadz</string>
+    <string name="kajian">Kajian</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="tombolquran">Kajian Al Quran</string>
+    <string name="tombolsunnah">Kajian Sunnah</string>
+    <string name="tombolmasjid">Masjid dan Agenda</string>
+    <string name="tomboltanyajawab">Tanya Jawab Ustadz</string>
+    <string name="tafsiradhwaulbayan">Gambar Tafsir Adhwaul Bayan</string>
+
+</resources>
