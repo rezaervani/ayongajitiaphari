@@ -21,39 +21,23 @@ public class TombolMasuk extends Activity {
 		
 		setContentView(R.layout.tombolmasuk);
 		
-		tombolquran 		= (Button) findViewById(R.id.button1);
-		tombolsunnah 		= (Button) findViewById(R.id.button2);
-		tombolmasjid		= (Button) findViewById(R.id.button3);
-		tomboltanyajawab	= (Button) findViewById(R.id.button4);
+		tombolquran = (Button) findViewById(R.id.button1);
 		
 		tombolquran.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent bukatafsir = new Intent(TombolMasuk.this, DaftarSurah.class);
+				Intent bukatafsir = new Intent(TombolMasuk.this, MainActivity.class);
 				startActivity(bukatafsir);
 				
 			}
 			
 			
-		});
-		
-		tombolmasjid.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent bukajadwal = new Intent(TombolMasuk.this, MainActivity.class);
-				startActivity(bukajadwal);
-				
-			}
-			
 		}
 		
 				
 				
-				);		
-				
-			
+				);
 		
 	}
 	

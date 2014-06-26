@@ -30,30 +30,17 @@ public class TombolMasuk extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent bukatafsir = new Intent(TombolMasuk.this, DaftarSurah.class);
+				Intent bukatafsir = new Intent(TombolMasuk.this, MainActivity.class);
 				startActivity(bukatafsir);
 				
 			}
 			
 			
-		});
-		
-		tombolmasjid.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent bukajadwal = new Intent(TombolMasuk.this, MainActivity.class);
-				startActivity(bukajadwal);
-				
-			}
-			
 		}
 		
 				
 				
-				);		
-				
-			
+				);
 		
 	}
 	

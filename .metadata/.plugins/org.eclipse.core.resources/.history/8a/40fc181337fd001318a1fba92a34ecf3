@@ -38,11 +38,6 @@
             android:label="@string/app_name" > 
             
         </activity>
-        <activity 
-            android:name="com.eclipseprogramming.ayongajitiaphari.DaftarSurah"
-            android:label="@string/app_name" >
-            
-        </activity>
     </application>
 
 </manifest>
