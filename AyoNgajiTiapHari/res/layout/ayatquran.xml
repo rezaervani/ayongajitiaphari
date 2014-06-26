@@ -15,7 +15,7 @@
         android:paddingBottom="2dip"
         android:paddingTop="6dip"
         android:text="@string/namasurah"
-        android:textColor="#aabbcc"
+        android:textColor="#580000"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="2dip"
         android:text="@string/keterangansurah"
-        android:textColor="#acacac" />
+        android:textColor="#000000" />
 
 </LinearLayout>

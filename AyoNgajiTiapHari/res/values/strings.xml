@@ -17,5 +17,13 @@
     <string name="tafsiradhwaulbayan">Gambar Tafsir Adhwaul Bayan</string>
     <string name="namasurah">Nama Surah</string>
     <string name="keterangansurah">Keterangan Surah</string>
+    <string name="tentangaplikasi">Tentang Aplikasi</string>
+    <string name="shahihbukhari">Shahih Bukhari</string>
+    <string name="shahihmuslim">Shahih Muslim</string>
+    <string name="riyadhusshalihin">Riyadhus Shalihin</string>
+    <string name="arbainnawawiyah">Arbain an Nawawiyah</string>
+    <string name="sunannasai">Sunan Nasai</string>
+    <string name="sunanabudawud">Sunan Abu Dawud</string>
+    
 
 </resources>

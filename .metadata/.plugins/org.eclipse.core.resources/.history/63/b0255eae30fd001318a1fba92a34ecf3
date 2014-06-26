@@ -1,5 +1,0 @@
-package com.eclipseprogramming.ayongajitiaphari;
-
-public class DaftarSurah extends List Activity {
-
-}

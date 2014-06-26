@@ -12,6 +12,7 @@ public class TombolMasuk extends Activity {
 	Button tombolsunnah;
 	Button tombolmasjid;
 	Button tomboltanyajawab;
+	Button tombolinfo;
 	
 
 	@Override
@@ -25,6 +26,7 @@ public class TombolMasuk extends Activity {
 		tombolsunnah 		= (Button) findViewById(R.id.button2);
 		tombolmasjid		= (Button) findViewById(R.id.button3);
 		tomboltanyajawab	= (Button) findViewById(R.id.button4);
+		tombolinfo			= (Button) findViewById(R.id.button5);
 		
 		tombolquran.setOnClickListener(new OnClickListener() {
 
@@ -49,10 +51,20 @@ public class TombolMasuk extends Activity {
 			
 		}
 		
+			);		
 				
+		tombolsunnah.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent bukasunnah = new Intent(TombolMasuk.this, KitabHadits.class);
+				startActivity(bukasunnah);
 				
-				);		
-				
+			}
+			
+		}
+		
+			);		
 			
 		
 	}
