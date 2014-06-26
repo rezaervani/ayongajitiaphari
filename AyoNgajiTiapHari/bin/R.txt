@@ -255,10 +255,10 @@ int id action_mode_close_button 0x7f050024
 int id activity_chooser_view_content 0x7f050025
 int id always 0x7f05000b
 int id beginning 0x7f050011
-int id button1 0x7f050046
-int id button2 0x7f050047
-int id button3 0x7f050048
-int id button4 0x7f050049
+int id button1 0x7f050045
+int id button2 0x7f050046
+int id button3 0x7f050047
+int id button4 0x7f050048
 int id checkbox 0x7f05002d
 int id collapseActionView 0x7f05000d
 int id default_activity_button 0x7f050028
@@ -279,7 +279,6 @@ int id judul 0x7f050041
 int id keterangan 0x7f05003d
 int id listMode 0x7f050001
 int id list_item 0x7f050029
-int id listquran 0x7f050045
 int id masjid 0x7f050042
 int id middle 0x7f050012
 int id namasurah 0x7f05003c
