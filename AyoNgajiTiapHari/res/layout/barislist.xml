@@ -18,12 +18,11 @@
         android:padding="3dip" >
 
         <ImageView
-            android:id="@+id/list_image"
-            android:layout_width="fill_parent"
+            android:id="@+id/teksayat"
+            android:layout_width="match_parent"
             android:layout_height="50dip"
-            android:layout_weight="662.46"
             android:contentDescription="@string/ayattampil"
-            android:src="@drawable/1_1" />
+            android:src="@drawable/alfatihah_1" />
     </LinearLayout>
  
     <!-- Terjemahan -->
@@ -32,14 +31,14 @@
     <!-- Artist Name -->
 
     <TextView
-        android:id="@+id/artist"
+        android:id="@+id/terjemah"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/thumbnail"
         android:layout_below="@+id/thumbnail"
         android:text="Dengan Nama Allah yang Maha Pengasih lagi Maha Penyayang"
         android:textColor="#343434"
-        android:textSize="10dip" />
+        android:textSize="12sp" />
  
     <!-- Rightend Duration -->
  

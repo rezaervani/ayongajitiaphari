@@ -65,6 +65,19 @@ public class TombolMasuk extends Activity {
 		}
 		
 			);		
+		
+		tombolinfo.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent bukaayat = new Intent(TombolMasuk.this, ListViewAyat.class);
+				startActivity(bukaayat);
+				
+			}
+			
+		}
+		
+			);		
 			
 		
 	}

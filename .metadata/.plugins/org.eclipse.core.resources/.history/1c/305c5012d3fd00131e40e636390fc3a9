@@ -1,0 +1,9 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.widget.BaseAdapter;
+
+public class AdapterAyat extends BaseAdapter {
+	
+	
+
+}

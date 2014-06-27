@@ -1,0 +1,7 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+public class AdapterAyat extends BaseAdapter {
+	
+	
+
+}
