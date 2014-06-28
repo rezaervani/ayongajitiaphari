@@ -1,0 +1,23 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class LemparSementara extends Activity {
+	
+	TextView lblText;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.sementara);
+		
+		TextView lblText = (TextView) findByViewId
+	}
+	
+	
+
+}

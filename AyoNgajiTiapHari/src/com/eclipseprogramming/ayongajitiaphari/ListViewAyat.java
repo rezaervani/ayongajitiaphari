@@ -11,11 +11,13 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -23,34 +25,50 @@ public class ListViewAyat extends Activity {
 	
 	private ProgressDialog dialogp;
 	
-	// All static variables
-	static final String url = "http://rumahilmu.net/eclipseprogramming/ayatquran.xml";
+	private static final String TAG_KODE = "kode";
+	
 	// XML node keys
 	static final String KEY_SONG = "ayatquran"; // parent node
 	static final String KEY_ID = "Id";
 	static final String KEY_TERJEMAH = "terjemah";
 	static final String KEY_THUMB_URL = "urlgambar";
 	
+	String url = null;
+	
 	ListView list;
     AdapterAyat adapter;
+    TextView labeltersembunyi;
     
-    ArrayList<HashMap<String, String>> ayatayatQuran;
+   ArrayList<HashMap<String, String>> ayatayatQuran = new ArrayList<HashMap<String, String>>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.penampilayat);
 		
-
-		ayatayatQuran = new ArrayList<HashMap<String, String>>();
+		//memperoleh data intent
+		Intent bukamushaf = getIntent();
+				
+		// mendapatkan nilai JSON dari intent sebelumnya
+		String kode = bukamushaf.getStringExtra(TAG_KODE);
+				
+		String urlnyanih = "http://rumahilmu.net/eclipseprogramming/" + kode + ".xml";
+		
+		TextView labeltersembunyi = (TextView) findViewById(R.id.sembunyilagi);
+		
+		
+		labeltersembunyi.setText(urlnyanih);
+		
 		
 		new GetAyat().execute();
 		
 	}
 	
+	
+	
 	private class GetAyat extends AsyncTask<Void, Void, Void> {
 		
-		
+	
 		
 		@Override
 		protected void onPreExecute() {
@@ -67,12 +85,14 @@ public class ListViewAyat extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			// TODO Auto-generated method stub
+			String url = ((TextView) findViewById(R.id.sembunyilagi)).getText().toString();
 			
 			//Memanggil XMLParser (Panggilan HTTP)
 			XMLParser parser = new XMLParser();
 			
 			String xml = parser.getXmlFromUrl(url, XMLParser.GET); 
 			
+			Log.d("Response: ", "> " + xml);
 			
 		if(xml != null) {
 			try {
@@ -101,7 +121,7 @@ public class ListViewAyat extends Activity {
 			e.printStackTrace();
 		}
 		} else {
-			Log.e("XMLParser", "Tidak Mendapatkan Data");
+			Log.d("XMLParser", "Tidak Mendapatkan Data");
 		}
 			
 			return null;

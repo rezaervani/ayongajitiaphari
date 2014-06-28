@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
 <fullyQualifiedTypeName name="android.widget.BaseAdapter"/>
 <fullyQualifiedTypeName name="android.view.LayoutInflater"/>
@@ -13,12 +12,15 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="com.eclipseprogramming.ayongajitiaphari.R.layout"/>
-<fullyQualifiedTypeName name="android.app.Activity"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="android.app.ProgressDialog"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask"/>
 <fullyQualifiedTypeName name="org.w3c.dom.DOMException"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="com.eclipseprogramming.ayongajitiaphari.R.layout"/>
 <fullyQualifiedTypeName name="com.eclipseprogramming.ayongajitiaphari.R.id"/>
+<fullyQualifiedTypeName name="com.eclipseprogramming.ayongajitiaphari.ListViewAyat"/>
+<fullyQualifiedTypeName name="com.eclipseprogramming.ayongajitiaphari.DaftarSurah"/>
 </qualifiedTypeNameHistroy>

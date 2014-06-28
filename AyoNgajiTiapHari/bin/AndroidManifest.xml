@@ -55,6 +55,11 @@
             android:label="@string/app_name" >
             
         </activity>
+        <activity
+            android:name="com.eclipseprogramming.ayongajitiaphari.LemparSementara"
+            android:label="@string/app_name" >
+            
+        </activity>
             
         </application>
 

@@ -12,17 +12,23 @@
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        
         android:layout_marginRight="5dip"
         android:background="@drawable/imagebg"
+        
         android:padding="3dip" >
+
+   
 
         <ImageView
             android:id="@+id/teksayat"
-            android:layout_width="match_parent"
-            android:layout_height="50dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|right"
             android:contentDescription="@string/ayattampil"
+            android:scaleType="fitCenter"
             android:src="@drawable/alfatihah_1" />
+
     </LinearLayout>
  
     <!-- Terjemahan -->
@@ -35,14 +41,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/thumbnail"
+        android:layout_alignParentLeft="true"
         android:layout_below="@+id/thumbnail"
         android:text="Dengan Nama Allah yang Maha Pengasih lagi Maha Penyayang"
         android:textColor="#343434"
         android:textSize="12sp" />
- 
-    <!-- Rightend Duration -->
- 
-     <!-- Rightend Arrow -->
-  
  
 </RelativeLayout>

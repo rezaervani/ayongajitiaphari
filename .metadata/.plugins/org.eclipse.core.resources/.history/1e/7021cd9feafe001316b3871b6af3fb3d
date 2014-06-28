@@ -1,0 +1,41 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+import static com.eclipseprogramming.ayongajitiaphari.KUNCI;
+
+public class LemparSementara extends Activity {
+	
+	
+	
+	
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.sementara);
+		
+		String teks = "";
+		
+		Intent bukamushaf = getIntent();
+		
+		if (null != bukamushaf) {
+			teks = bukamushaf.getStringExtra(K)
+		}
+		
+		// mendapatkan nilai JSON dari intent sebelumnya
+		String kode = bukamushaf.getStringExtra("daridaftarsurah");
+		
+		TextView lblText = (TextView) findViewById(R.id.teksdariintentsebelumnya);
+		
+		lblText.setText(kode);
+		
+	}
+	
+	
+
+}

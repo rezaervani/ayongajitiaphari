@@ -10,18 +10,25 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class DaftarSurah extends ListActivity {
 	
 	private ProgressDialog pDialog;
+	
+	
 	
 	// URL untuk mendapatkan JSON
 	private static String url = "http://rumahilmu.net/eclipseprogramming/ayatquran.php";
@@ -31,6 +38,8 @@ public class DaftarSurah extends ListActivity {
 	private static final String TAG_ID = "id";
 	private static final String TAG_NAMASURAH = "namasurah";
 	private static final String TAG_KETERANGAN = "keterangan";
+	private static final String TAG_KODE		= "kode";
+	
 	
 	
 	
@@ -48,6 +57,28 @@ public class DaftarSurah extends ListActivity {
         daftarSurah = new ArrayList<HashMap<String, String>>();
         
         ListView lv = getListView();
+        
+        lv.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				String kode = ((TextView) view.findViewById(R.id.tekssembunyi)).getText().toString();
+				
+				
+				Intent bukamushaf = new Intent(getApplicationContext(), ListViewAyat.class);
+				bukamushaf.putExtra(TAG_KODE, kode);
+				startActivity(bukamushaf);
+				
+				
+			}
+        
+        	
+        	
+        	
+        	
+        });
         
         new GetJadwal().execute();
         
@@ -94,6 +125,7 @@ public class DaftarSurah extends ListActivity {
     					String id 		= c.getString(TAG_ID);
     					String namasurah 	= c.getString(TAG_NAMASURAH);
     					String keterangan 	= c.getString(TAG_KETERANGAN);
+    					String kode			= c.getString(TAG_KODE);
     					
     					
     					
@@ -102,7 +134,7 @@ public class DaftarSurah extends ListActivity {
     					jadwal.put(TAG_ID, id);
     					jadwal.put(TAG_NAMASURAH, namasurah);
     					jadwal.put(TAG_KETERANGAN, keterangan);
-    					
+    					jadwal.put(TAG_KODE, kode);
     					
     					
     					daftarSurah.add(jadwal);
@@ -132,9 +164,9 @@ public class DaftarSurah extends ListActivity {
 			
 			ListAdapter adapter = new SimpleAdapter(DaftarSurah.this, daftarSurah, R.layout.ayatquran, new String[]
 					
-					{TAG_NAMASURAH, TAG_KETERANGAN  },
+					{TAG_NAMASURAH, TAG_KETERANGAN, TAG_KODE  },
 					
-					new int[] { R.id.namasurah, R.id.keterangan});
+					new int[] { R.id.namasurah, R.id.keterangan, R.id.tekssembunyi});
 			
 			setListAdapter(adapter);
 			
