@@ -3,11 +3,18 @@ package com.eclipseprogramming.ayongajitiaphari;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -24,28 +31,58 @@ import org.xml.sax.SAXException;
 import android.util.Log;
 
 public class XMLParser {
+	
+	static String xml = null;
+	public final static int GET = 1;
+	public final static int POST = 2;
 
 	// constructor
 	public XMLParser() {
 
+
 	}
 
-	/**
-	 * Getting XML from URL making HTTP request
-	 * @param url string
-	 * */
-	public String getXmlFromUrl(String url) {
-		String xml = null;
-
+	public String getXmlFromUrl(String url, int method) {
+		return this.getXmlFromUrl(url, method, null);
+	}
+	
+	public String getXmlFromUrl(String url, int method, List<NameValuePair> params) {
+		
+	
 		try {
 			// defaultHttpClient
 			DefaultHttpClient httpClient = new DefaultHttpClient();
-			HttpPost httpPost = new HttpPost(url);
+			HttpEntity httpEntity = null;
+			HttpResponse httpResponse = null;
 
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			HttpEntity httpEntity = httpResponse.getEntity();
+			if (method == POST) {
+				HttpPost httpPost = new HttpPost(url);
+				
+				if (params != null) {
+					httpPost.setEntity(new UrlEncodedFormEntity(params));
+				}
+				
+				httpResponse = httpClient.execute(httpPost);
+				
+			} else if (method == GET) {
+				
+				if (params != null) {
+					String paramString = URLEncodedUtils.format(params, "utf-8");
+					
+					url += "?" + paramString;
+							
+				}
+				
+				HttpGet httpGet = new HttpGet(url);
+				
+				httpResponse = httpClient.execute(httpGet);
+				
+			}
+			
+			httpEntity = httpResponse.getEntity();
 			xml = EntityUtils.toString(httpEntity);
-
+			
+			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {
