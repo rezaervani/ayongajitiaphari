@@ -1,0 +1,142 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.w3c.dom.DOMException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class RiyadhusShalihin extends Activity {
+	
+private ProgressDialog dialogp;
+	
+    String url = "http://rumahilmu.net/eclipseprogramming/riyadhusshalihin.xml";
+	
+	// XML node keys
+	static final String TAG_KITAB = "riyadhusshalihin"; // parent node
+	static final String TAG_ID = "Id";
+	static final String TAG_TERJEMAH = "terjemah";
+	static final String KEY_THUMB_URL = "urlgambar";
+	static final String TAG_DERAJAT = "derajat";
+	static final String TAG_PENGESAHAN = "pengesahan";
+	static final String TAG_SYARAH = "syarah";
+	
+	
+	
+	ListView list;
+    AdapterAyat adapter;
+    
+    
+   ArrayList<HashMap<String, String>> HaditsRiyadhusShalihin = new ArrayList<HashMap<String, String>>();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.riyadhusshalihin);
+		
+	}
+
+	
+	private class GetHadits extends AsyncTask<Void, Void, Void> {
+		
+	
+		
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			
+			dialogp = new ProgressDialog(RiyadhusShalihin.this);
+			dialogp.setMessage("Memuat Data dari rumahilmu.net");
+			dialogp.setCancelable(false);
+			dialogp.show();
+		}
+
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+			
+			
+			//Memanggil XMLParser (Panggilan HTTP)
+			XMLParser parser = new XMLParser();
+			
+			String xml = parser.getXmlFromUrl(url, XMLParser.GET); 
+			
+			Log.d("Response: ", "> " + xml);
+			
+		if(xml != null) {
+			try {
+			
+			Document doc = parser.getDomElement(xml);
+			
+			NodeList nl = doc.getElementsByTagName(TAG_KITAB);
+			
+			//looping
+			for (int i = 0; i < nl.getLength(); i++) {
+				
+				//Membuat HashMap 
+				HashMap<String, String> map = new HashMap<String, String>();
+				Element haditsnya = (Element) nl.item(i);
+				
+				//Memasukkan node childe ke HashMap => value
+				map.put(TAG_ID, parser.getValue(haditsnya, TAG_ID));
+				map.put(TAG_TERJEMAH, parser.getValue(haditsnya, TAG_TERJEMAH));
+				map.put(KEY_THUMB_URL, parser.getValue(haditsnya, KEY_THUMB_URL));
+				map.put(TAG_DERAJAT, parser.getValue(haditsnya, TAG_DERAJAT));
+				map.put(TAG_PENGESAHAN, parser.getValue(haditsnya, TAG_PENGESAHAN));
+				map.put(TAG_SYARAH, parser.getValue(haditsnya, TAG_SYARAH));
+				
+				//menambahkan HashList ke ArrayList
+				HaditsRiyadhusShalihin.add(map);
+			}
+			
+		} catch (DOMException e) {
+			e.printStackTrace();
+		}
+		} else {
+			Log.d("XMLParser", "Tidak Mendapatkan Data");
+		}
+			
+			return null;
+		}
+	
+		@Override
+		protected void onPostExecute(Void result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			
+			if (dialogp.isShowing())
+				dialogp.dismiss();
+			
+			list = (ListView) findViewById(R.id.listayat);
+		
+			adapter = new AdapterAyat(RiyadhusShalihin.this, HaditsRiyadhusShalihin);
+			
+			list.setAdapter(adapter);
+			
+			
+		}
+	
+	}		
+        
+}
+			
+
+
+	
+	
+	
+

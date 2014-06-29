@@ -65,10 +65,12 @@ public class DaftarSurah extends ListActivity {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				String kode = ((TextView) view.findViewById(R.id.tekssembunyi)).getText().toString();
+				String namasurah = ((TextView) view.findViewById(R.id.namasurah)).getText().toString();
 				
 				
 				Intent bukamushaf = new Intent(getApplicationContext(), ListViewAyat.class);
 				bukamushaf.putExtra(TAG_KODE, kode);
+				bukamushaf.putExtra(TAG_NAMASURAH, namasurah);
 				startActivity(bukamushaf);
 				
 				

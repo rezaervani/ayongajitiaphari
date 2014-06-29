@@ -28,6 +28,9 @@
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="3" key="pageIndex"/>
+	</section>
 	<section name="DialogBounds_OverrideMethodDialog">
 		<item value="639" key="DIALOG_WIDTH"/>
 		<item value="1|Cantarell|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>

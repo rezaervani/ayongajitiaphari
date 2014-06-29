@@ -1,0 +1,25 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class KitabHadits extends Activity {
+	
+	Button tombolshahihbukhari;
+	Button tombolshahihmuslim;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.kutubussitah);
+		
+		tombolshahihbukhari = (Button) findViewById(R.id.shahihbukhari);
+		tombolshahihmuslim = (Button) findViewById(R.id.shahihmuslim);
+		
+	}
+	
+	
+
+}

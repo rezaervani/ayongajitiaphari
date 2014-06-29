@@ -26,6 +26,7 @@ public class ListViewAyat extends Activity {
 	private ProgressDialog dialogp;
 	
 	private static final String TAG_KODE = "kode";
+	private static final String TAG_NAMASURAH = "namasurah";
 	
 	// XML node keys
 	static final String KEY_SONG = "ayatquran"; // parent node
@@ -51,14 +52,16 @@ public class ListViewAyat extends Activity {
 				
 		// mendapatkan nilai JSON dari intent sebelumnya
 		String kode = bukamushaf.getStringExtra(TAG_KODE);
+		String namasurah = bukamushaf.getStringExtra(TAG_NAMASURAH);
 				
 		String urlnyanih = "http://rumahilmu.net/eclipseprogramming/" + kode + ".xml";
 		
 		TextView labeltersembunyi = (TextView) findViewById(R.id.sembunyilagi);
+		TextView namasurahnya = (TextView) findViewById(R.id.namasurahnya);
 		
 		
 		labeltersembunyi.setText(urlnyanih);
-		
+		namasurahnya.setText(namasurah);
 		
 		new GetAyat().execute();
 		

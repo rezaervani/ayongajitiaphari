@@ -1,0 +1,44 @@
+package com.eclipseprogramming.ayongajitiaphari;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class KitabHadits extends Activity {
+	
+	Button tombolshahihbukhari;
+	Button tombolshahihmuslim;
+	Button tombolriyadhusshalihin;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.kutubussitah);
+		
+		tombolshahihbukhari = (Button) findViewById(R.id.shahihbukhari);
+		tombolshahihmuslim = (Button) findViewById(R.id.shahihmuslim);
+		tombolriyadhusshalihin = (Button) findViewById(R.id.riyadhusshalihin);
+	
+		
+		tombolriyadhusshalihin.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent bukatafsir = new Intent(TombolMasuk.this, RiyadhusShalihin.class);
+				startActivity(bukatafsir);
+				
+			}
+			
+			
+		});
+		
+		
+	}
+	
+	
+
+}
