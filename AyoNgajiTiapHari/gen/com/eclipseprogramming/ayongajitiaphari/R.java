@@ -997,8 +997,9 @@ containing a value of this type.
         public static final int no_image=0x7f02006b;
         public static final int quraniconlagi=0x7f02006c;
         public static final int quranmuka=0x7f02006d;
-        public static final int sunnah=0x7f02006e;
-        public static final int tanyajawab=0x7f02006f;
+        public static final int rs0001=0x7f02006e;
+        public static final int sunnah=0x7f02006f;
+        public static final int tanyajawab=0x7f020070;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1037,7 +1038,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05004e;
+        public static final int imageView1=0x7f05004c;
         public static final int judul=0x7f05004f;
         public static final int keterangan=0x7f05003e;
         public static final int listMode=0x7f050001;
@@ -1086,8 +1087,8 @@ containing a value of this type.
         public static final int tekshadisrs=0x7f050042;
         public static final int tekssembunyi=0x7f05003d;
         public static final int terjemah=0x7f050041;
-        public static final int textView1=0x7f05004d;
-        public static final int textView2=0x7f05004c;
+        public static final int textView1=0x7f05004e;
+        public static final int textView2=0x7f05004d;
         public static final int thumbnail=0x7f05003f;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;

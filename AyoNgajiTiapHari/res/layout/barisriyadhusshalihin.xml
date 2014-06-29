@@ -12,12 +12,11 @@
         android:id="@+id/thumbnail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+         android:scaleType="fitXY" 
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dip"
-        android:background="@drawable/imagebg"
+        
         android:padding="3dip" >
-
-   
 
         <ImageView
             android:id="@+id/tekshadisrs"
@@ -26,7 +25,7 @@
             android:layout_gravity="center_horizontal|right"
             android:contentDescription="@string/ayattampil"
             android:scaleType="fitCenter"
-            android:src="@drawable/alfatihah_1" />
+            android:src="@drawable/rs0001" />
 
     </LinearLayout>
  
