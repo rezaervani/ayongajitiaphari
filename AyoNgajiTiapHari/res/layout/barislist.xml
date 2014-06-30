@@ -19,7 +19,7 @@
 
    
 
-        <ImageView
+        <com.eclipseprogramming.ayongajitiaphari.ResizableImageView
             android:id="@+id/teksayat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
